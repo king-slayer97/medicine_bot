@@ -18,7 +18,7 @@ iframe {
 }
 
 .botui-container {
-  background-color: #34495E;
+  background-image: url('logo.png');
 }
 .botui-message-content {
   color: #FFFFFF;
