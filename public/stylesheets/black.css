@@ -4,40 +4,44 @@ html, body {
 }
 
 body {
-  background-color: #34495E;
+  background-image: url('logo3.jpg');
 }
 
 iframe {
-  width: 100%;
+  background-image: url('logo2.jpg');
+  width: 100px;
+  height: 150px;
 }
 
 .botui-app-container {
-  margin-top: 40px;
-  width: 410px;
-  height: 500px;
+  margin-top: 70px;
+  width: 500px;
+  height: 618px;
 }
 
 .botui-container {
   background-image: url('logo.png');
 }
 .botui-message-content {
-  color: #FFFFFF;
-  background-color: #F1C40F;
+  color: #000000;
+  background-color: #F5e5e5;
 }
 
 .botui-message-content.human {
-  background-color: #3498DB;
+  color: #000000;
+  background-color: #4EC0A9;
 }
 
 .botui-actions-text-input {
-  color: #FFFFFF;
-  border-bottom: 1px solid #3498DB;
+  color: #F5e5e5;
+  border-bottom: 3px solid #625F88;
   margin: 0;
 }
 
 .botui-actions-buttons-button {
-  line-height: 1 !important;
-  background-color: #3498DB;
+  line-height: 3 !important;
+  color: #000000;
+  background-color: #4EC0A9;
 }
 
 .botui-message-content-link {

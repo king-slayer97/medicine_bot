@@ -1,0 +1,88 @@
+function addAction () {
+  botui.action.button({ // let user do something
+    delay: 1000,
+    action: [
+      {
+        text: 'Good',
+        value: 'good'
+      },
+      {
+        text: 'Really Good',
+        value: 'really_good'
+      }
+    ]
+  }).then(function (res) {
+    socket.emit('fromClient', { client : res.value });
+    console.log('client response: ', res.value);
+  })
+}
+
+
+
+
+.then(function (res) {
+    socket.emit('fromClient', { client : res.value });
+    console.log('client response: ', res.value);
+    }).then(function(res)  {
+      if(res.value == 'exist') {
+        botui.message.text({
+          action: {
+            placeholder: 'Type here...'
+          }
+        });
+        end();
+      } else {
+        botui.message.button({
+          delay: 1000,
+    action: [
+      {
+        text: 'Buy',
+        value: 'buy'
+      },
+      {
+        text: 'Know More',
+        value: 'know_more'
+      }
+    ]
+  })
+
+
+
+
+-----------------------------------------
+
+function addAction () {
+  botui.action.button({
+    delay: 1000,
+    action: [
+      {
+        text: 'Buy',
+        value: 'buy'
+      },
+      {
+        text: 'Know more',
+        value: 'know_more'
+      }
+    ]
+  })
+  botui.action.text({
+    action: {
+      placeholder: 'enter response...', 
+    }
+  }).then(function (res) {
+    socket.emit('fromClient'l, { client : res.value });
+    console.log('client response: ', res.value);
+  })
+}
+
+
+------------------------------------
+    }).then(function(res) {
+      if(res.value == 'know more')  {
+        addAction();
+      }
+      else {
+        addActionButton();
+      }
+    }
+});

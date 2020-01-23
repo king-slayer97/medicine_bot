@@ -23,6 +23,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 console.log('Server Started at Port 3000');
+app.use('/:id', index);
 app.use('/', index);
 socket.conn();
 socket.fromClient();
