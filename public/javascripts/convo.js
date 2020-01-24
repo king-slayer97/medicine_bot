@@ -1,32 +1,6 @@
-// function parseURL(url) {
-//   var parser = document.createElement('a'),
-//       searchObject = {},
-//       queries, split, i;
-//   // Let the browser do the work
-//   parser.href = url;
-//   // Convert query string to object
-//   queries = parser.search.replace(/^\?/, '').split('&');
-//   for( i = 0; i < queries.length; i++ ) {
-//       split = queries[i].split('=');
-//       searchObject[split[0]] = split[1];
-//   }
-//   return {
-//       protocol: parser.protocol,
-//       host: parser.host,
-//       hostname: parser.hostname,
-//       port: parser.port,
-//       pathname: parser.pathname,
-//       search: parser.search,
-//       searchObject: searchObject,
-//       hash: parser.hash
-//   };
-// }
-// parseURL();
-// const queryString = window.location.search;
-// console.log(queryString);
+
 var pathname = window.location.pathname;
 var botui = new BotUI('api-bot');
-// var id = 'ayush'
 var socket = io.connect('http://localhost:8010');
 // io.on('connect', function() {
 //   return console.log('socket' + this.socket.sessionid);
@@ -48,17 +22,6 @@ botui.message.add({
     loading: true,
     delay:2000,
   })
-  }).then(() => {
-    return botui.action.button({ // let user do something
-      delay: 1000,
-      action: [
-        {
-          icon: 'check',
-          text: 'Proceed',
-          value: pathname
-        }
-      ]
-    })
   }).then(function (res) {
     socket.emit('fromClient', { client : res.value }); // sends the message typed to server
       console.log(res.value); // will print whatever was typed in the field.
@@ -151,11 +114,12 @@ botui.message.add({
       {
         icon: 'check',
         text: 'Buy',
-        value: 'buy'
+        value: 'purchase for' + pathname
       },
       {
+        icon: 'hand-paper-o',
         text: 'Know more',
-        value: 'know_more'
+        value: 'know_more' + pathname
       }
     ]
   })
@@ -200,23 +164,23 @@ botui.message.add({
     action: [
       {
         text: 'Self/Spouse',
-        value: 'Package1'
+        value: 'Package1' + pathname
       },
       {
         text: 'Self/Spouse + 1 child',
-        value: 'Package2'
+        value: 'Package2' + pathname
       },
       {
         text: 'Self/Spouse + 2 child',
-        value: 'Package3'
+        value: 'Package3' + pathname
       },
       {
         text: 'Self/Spouse + 3 child',
-        value: 'Package4'
+        value: 'Package4' + pathname
       },
       {
         text: 'Self/Spouse + 4 child',
-        value: 'Package5'
+        value: 'Package5' + pathname
       }
     ]
   })
@@ -233,11 +197,11 @@ botui.message.add({
     action: [
       {
         text: '5 lacs',
-        value: '5lacs'
+        value: '5L' + pathname
       },
       {
         text: '10 lacs',
-        value: '10lacs'
+        value: '10lacs' + pathname
       }
     ]
   })
@@ -261,11 +225,11 @@ botui.message.add({
     action: [
       {
         text: 'Pay now',
-        value: 'PayNow'
+        value: 'PayNow' + pathname
       },
       {
         text: 'Pay later',
-        value: 'PayLater'
+        value: 'PayLater' + pathname
       }
     ]
   })
@@ -323,13 +287,13 @@ function newMessage (response) {
   })
 }
 
-function newMessage1 (response) {
-  botui.message.add({
-    loading: true,
-    content:'Here is an image ![product image](https://example.com/image.png)',
-    delay: 1500,
-  })
-}
+// function newMessage1 (response) {
+//   botui.message.add({
+//     loading: true,
+//     content:'Here is an image ![product image](https://example.com/image.png)',
+//     delay: 1500,
+//   })
+// }
 
 function addAction () {
   botui.action.text({
@@ -337,7 +301,7 @@ function addAction () {
       placeholder: 'enter response...', 
     }
   }).then(function (res) {
-    socket.emit('fromClient', { client : res.value });
+    socket.emit('fromClient', { client : res.value + pathname });
     console.log('client response: ', res.value);
   })
 }
