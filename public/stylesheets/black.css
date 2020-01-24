@@ -4,32 +4,45 @@ html, body {
 }
 
 body {
+  background-position: center;
   background-image: url('logo3.png');
+  background-repeat: no-repeat;
+  background-size: 100rem 100rem;
 }
 
 iframe {
   background-image: url('logo2.jpg');
-  width: 100px;
+  background-size: 100% 100%;
+  width: 200px;
   height: 150px;
 }
 
 .botui-app-container {
   margin-top: 70px;
   width: 500px;
-  height: 618px;
+  height: 700px;
 }
 
 .botui-container {
-  background-image: url('logo.png');
+  border-radius: 25px;
+  border: 2px solid #625F88; 
+  background-image: url('logo.png'); 
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
 }
 .botui-message-content {
   color: #000000;
+  border-top-left-radius: 0px;
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
   background-color: #F5e5e5;
+  font-family: 'Segoe UI', bold ;
 }
 
 .botui-message-content.human {
   color: #000000;
-  background-color: #4EC0A9;
+  background-color: #F5e5e5;
 }
 
 .botui-actions-text-input {
@@ -42,6 +55,13 @@ iframe {
   line-height: 3 !important;
   color: #000000;
   background-color: #4EC0A9;
+  border-top-right-radius: 10px;
+  border-top-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  font-family: Maven Pro;
+  font-weight: bolder;
+  font-size: larger;
 }
 
 .botui-message-content-link {
@@ -49,5 +69,5 @@ iframe {
 }
 
 .botui-messages-container {
-  padding: 30px 0px;
+  padding: 5px 5px 5px 5px;
 }

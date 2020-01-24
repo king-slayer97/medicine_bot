@@ -12,13 +12,13 @@ var socket = io.connect('http://localhost:8010');
 //   content:'- [Shore](www.shore.com)^'
 // });
 botui.message.add({
-  content: 'Dear Customer',
+  content: 'Dear ' + pathname,
   loading: true,
   delay: 1500,
 
 }).then(() =>{
   return botui.message.add({
-    content: 'Welcome to <b><i>Bajaj Finserv Managed Care Solution.</b></i> 😊',
+    content: 'Welcome to <b>Bajaj Finserv Managed Care Solution.</b> 😊',
     loading: true,
     delay:2000,
   })
