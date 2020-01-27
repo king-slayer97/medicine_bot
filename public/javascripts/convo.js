@@ -12,7 +12,7 @@ var socket = io.connect('http://localhost:8010');
 //   content:'- [Shore](www.shore.com)^'
 // });
 botui.message.add({
-  content: 'Dear ' + pathname,
+  content: 'Dear Customer,',
   loading: true,
   delay: 1500,
 
@@ -34,66 +34,60 @@ botui.message.add({
     })
   }).then(() =>{
     return botui.message.add({
-      content: 'As you are an esteemed client of Bajaj Finserv group of companies, we would like to offer you a Health Package provided by Bajaj Finserv Health Limited.',
+      type:'embed',
+      content: '',
       loading: true,
       delay:2000,
     })
     }).then(() =>{
-      return botui.message.add({
-        type:'embed',
-        content: '',
-        loading: true,
-        delay:2000,
-      })
-      }).then(() =>{
-      return botui.message.add({
-        content: 'We bring you <b>"Health Secure Package"</b> for you and your family',
-        loading: true,
-        delay:2000,
-      })
-      }).then(() => {
+    return botui.message.add({
+      content: 'As you are an esteemed client of Bajaj Finserv group of companies, we would like to offer you a Health Package provided by Bajaj Finserv Health Limited.',
+      loading: true,
+      delay:2000,
+    })
+    }).then(() => {
         return botui.message.add({
-          content: 'Health Secure Package provides the following benefits:',
+          content: 'Complete Health Secure Package provides the following benefits:',
           loading: true,
           delay:2000,
         }).then(() => {
           return botui.message.add({
-            content: '1) <b><i>Cashless OPD Benefits</b></i>',
+            content: '<b>1) Cashless OPD Benefits at Ruby Hall Clinic</b>',
             loading: true,
             delay:2000,
           })
           
   }).then(() => {
     return botui.message.add({
-      content: '2) <b><i>Health Insurance</b></i>',
+      content: '<b>2) Health Insurance</b>',
       loading: true,
       delay:2000,
     })
     
 }).then(() => {
   return botui.message.add({
-    content: '3) <b><i>Set of diagnostic tests</b></i>',
+    content: '<b>3) Comprehensive health check plan at Ruby Hall Clinic</b>',
     loading: true,
     delay:2000,
   })
   
 }).then(() => {
   return botui.message.add({
-    content: '4) <b><i>Health application</b></i>',
+    content: '<b>4) Mobile application to manage your health</b>',
     loading: true,
     delay:2000,
   })
   
 }).then(() => {
   return botui.message.add({
-    content: '5) <b><i>A set of discounts on doctor consultations, labs, pharmacy, spectacles, free ambulance etc. at Ruby Hall Clinic.</b></i>',
+    content: '<b>5) Unique card from Ruby Hall Clinic</b> provides you discounts on doctor consultations, labs, pharmacy, spectacles & amenities like free ambulance etc.</b>',
     loading: true,
     delay:2000,
   })
   
 }).then(() => {
   return botui.message.add({
-    content: '6) <b><i>A set of Loyalties benefits</b></i> which includes Free dietician & physiotherapist consulation during IPD admission, one free travel medical kit and many more at Ruby Hall Clinic.',
+    content: '<b>6) A set of Loyalties benefits</b> which includes Free dietician & physiotherapist consulation during IPD admission, one free travel medical kit and many more at Ruby Hall Clinic.',
     loading: true,
     delay:2000,
   })
@@ -201,46 +195,43 @@ botui.message.add({
       },
       {
         text: '10 lacs',
-        value: '10lacs' + pathname
-      }
-    ]
-  })
-}).then(() => {
-  return botui.message.add({
-    content: '<b>Thank you for choosing the plan. </b>',
-    loading: true,
-    delay:2000,
-  })
-  
-}).then(() => {
-  return botui.message.add({
-    content: '<b>Kindly select </b>',
-    loading: true,
-    delay:2000,
-  })
-  
-}).then(() => {
-  return botui.action.button({ // let user do something
-    delay: 1000,
-    action: [
-      {
-        text: 'Pay now',
-        value: 'PayNow' + pathname
-      },
-      {
-        text: 'Pay later',
-        value: 'PayLater' + pathname
+        value: '10L' + pathname
       }
     ]
   })
 }).then(function (res) {
   socket.emit('fromClient', { client : res.value }); // sends the message typed to server
-    console.log(res.value); // will print whatever was typed in the field.
+    console.log(res.value);
+    addAction(); // will print whatever was typed in the field.
+  }).then(() => {
+  return botui.message.add({
+    content: '<b>Thank you for choosing the plan. </b>',
+    loading: false,
+    delay:false,
+  }).then(() => {
+    return botui.message.add({
+      content: '<b>Our representative will contact you shortly!</b>',
+      loading: false,
+      delay:false,
+    })
+    
+  }).then(() => {
+    return botui.message.add({
+      content: '<b>Meanwhile please help with below details</b>',
+      loading: false,
+      delay:false,
+    })
+    
+  })
+  
+// }).then(function (res) {
+//   socket.emit('fromClient', { client : res.value }); // sends the message typed to server
+//     console.log(res.value); // will print whatever was typed in the field.
   }).then(function () {
     socket.on('fromServer', function (data) { // receiveing a reply from server.
      // console.log(data.server);
-    //  newMessage(data.server);
-     addAction();
+    // newMessage(data.server);
+    addAction();
     //  link();
 //   })
 // }).then(function (res) {

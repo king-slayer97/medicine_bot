@@ -42,12 +42,18 @@ iframe {
 
 .botui-message-content.human {
   color: #000000;
-  background-color: #F5e5e5;
+  background-color: #4EC0A9;
+  font-weight: bolder;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 15px;
+  border-bottom-left-radius: 15px;
 }
 
 .botui-actions-text-input {
   color: #F5e5e5;
-  border-bottom: 3px solid #625F88;
+  text-decoration-color: #F5e5e5;
+  border-bottom: 3px solid #F5e5e5;
   margin: 0;
 }
 
