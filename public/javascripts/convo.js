@@ -42,8 +42,8 @@ botui.message.add({
     }).then(() =>{
     return botui.message.add({
       content: 'As you are an esteemed client of Bajaj Finserv group of companies, we would like to offer you a Health Package provided by Bajaj Finserv Health Limited.',
-      loading: true,
-      delay:2000,
+      loading: false,
+      delay:false,
     })
     }).then(() => {
         return botui.message.add({
@@ -178,7 +178,10 @@ botui.message.add({
       }
     ]
   })
-}).then(() => {
+}).then(function (res) {
+  socket.emit('fromClient', { client : res.value }); // sends the message typed to server
+    console.log(res.value); // will print whatever was typed in the field.
+  }).then(() => {
   return botui.message.add({
     content: '<b>Please select the sum insured amount</b>',
     loading: true,
